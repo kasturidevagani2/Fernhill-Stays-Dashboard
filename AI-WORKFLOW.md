@@ -3,6 +3,9 @@
 ## AI Tools Used
 
 - ChatGPT (GPT-5.5)
+- GitHub Copilot
+- VS Code AI
+
 
 ---
 
