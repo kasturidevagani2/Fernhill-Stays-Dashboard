@@ -88,7 +88,20 @@ Reason:
 - Consistent naming improves chart accuracy.
 
 ---
+### 8. Health Score Definition
+Example:
 
+Health Score =
+(Revenue / 20000)
++
+(Bookings × 2)
+
+Maximum = 100
+
+Reason:
+- Revenue reflects business performance, while booking count reflects occupancy. Combining both provides a balanced indicator of property performance.
+  
+---
 ## Dashboard Decisions
 
 Business KPIs selected:
