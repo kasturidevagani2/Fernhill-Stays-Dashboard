@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import metrics from "./metrics.json";
 import {
   PieChart,
   Pie,
@@ -18,16 +17,9 @@ import {
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 function App() {
-  const [metrics, setMetrics] = useState(null);
+  const data = metrics;
 
-  useEffect(() => {
-    axios
-      .get("/metrics")
-      .then((res) => setMetrics(res.data))
-      .catch((err) => console.error(err));
-  }, []);
-
-  if (!metrics) {
+  if (!data) {
     return <h2 style={{ padding: "30px" }}>Loading Dashboard...</h2>;
   }
 
