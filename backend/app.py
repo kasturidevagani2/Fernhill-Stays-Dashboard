@@ -25,9 +25,6 @@ file_path = os.path.join(
 )
 
 df = pd.read_csv(file_path)
-@app.get("/")
-def home():
-    return {"message": "Fernhill Stays API is running"}
 
 @app.get("/health")
 def health():
@@ -124,5 +121,8 @@ def metrics():
 
 frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
 
-if frontend_dist.exists():
-    app.mount("/", StaticFiles(directory=str(frontend_dist), html=True), name="static")
+app.mount(
+    "/",
+    StaticFiles(directory=str(frontend_dist), html=True),
+    name="frontend",
+)
