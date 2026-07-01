@@ -18,7 +18,6 @@ app.add_middleware(
 
 # -----------------------------
 # Load Cleaned Dataset
-# -----------------------------
 file_path = os.path.join(
     os.path.dirname(__file__),
     "data",
@@ -26,10 +25,13 @@ file_path = os.path.join(
 )
 
 df = pd.read_csv(file_path)
+@app.get("/")
+def home():
+    return {"message": "Fernhill Stays API is running"}
 
-frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
-if frontend_dist.exists():
-    app.mount("/", StaticFiles(directory=str(frontend_dist), html=True), name="static")
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 
 @app.get("/metrics")
@@ -119,3 +121,8 @@ def metrics():
         "top_property": top_property,
         "top_property_revenue": property_revenue[top_property]
     }
+
+frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+
+if frontend_dist.exists():
+    app.mount("/", StaticFiles(directory=str(frontend_dist), html=True), name="static")
