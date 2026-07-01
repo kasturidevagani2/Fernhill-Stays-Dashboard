@@ -7,7 +7,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -31,17 +33,13 @@ jobs:
         working-directory: frontend
         run: npm run build
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+
       - name: Deploy to GitHub Pages
-        run: |
-          mkdir -p deploy_temp
-          cp -r frontend/dist/* deploy_temp/
-          
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          
-          git checkout --orphan gh-pages
-          git rm -rf .
-          cp -r deploy_temp/* .
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push -f origin gh-pages
+        uses: actions/deploy-pages@v4
