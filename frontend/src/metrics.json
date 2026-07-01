@@ -1,0 +1,45 @@
+{
+  "total_bookings": 230,
+  "total_revenue": 4319266.0,
+  "total_properties": 5,
+  "total_guests": 494,
+  "average_nightly_rate": 4973.55,
+  "average_stay": 3.18,
+  "booking_status": {
+    "Checked-Out": 77,
+    "Confirmed": 68,
+    "No-Show": 44,
+    "Cancelled": 41
+  },
+  "booking_channels": {
+    "OTA-MMT": 60,
+    "Direct": 59,
+    "Corporate": 34,
+    "Walk-In": 30,
+    "Unknown": 27,
+    "OTA-Booking": 20
+  },
+  "property_revenue": {
+    "Birchwood Stay": 606276.0,
+    "Cedar Court": 683834.0,
+    "Lakeview Residency": 917001.0,
+    "Marigold Suites": 1194303.0,
+    "Palm Grove Inn": 917852.0
+  },
+  "property_health": {
+    "Birchwood Stay": 70.3,
+    "Cedar Court": 100,
+    "Lakeview Residency": 100,
+    "Marigold Suites": 100,
+    "Palm Grove Inn": 100
+  },
+  "monthly_revenue": {
+    "Jan": 270385,
+    "Feb": 604342,
+    "Mar": 1764031,
+    "Apr": 325146,
+    "May": 409542
+  },
+  "top_property": "Marigold Suites",
+  "top_property_revenue": 1194303.0
+}
